@@ -1,1 +1,2 @@
-print("I am installed and working properly")
+import sklearn
+print(sklearn.__version__)
