@@ -1,2 +1,4 @@
 keras
-tensorflow
+numpy
+--upgrade tensorflow
+python36-devel
