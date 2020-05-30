@@ -4,6 +4,8 @@ RUN yum install python36 -y
 
 RUN yum -y install epel-release
 
+RUN yum -y install gcc gcc-c++ atlas atlas-devel gcc-gfortran openssl-devel libffi-devel
+
 COPY  . .
 
 RUN pip3 install --upgrade --no-cache-dir -r requirement_cnn.txt
