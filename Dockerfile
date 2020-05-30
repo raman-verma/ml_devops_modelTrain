@@ -4,7 +4,7 @@ RUN yum install python36 -y
 
 RUN yum -y install epel-release
 
-RUN yum -y install gcc gcc-c++ atlas atlas-devel gcc-gfortran openssl-devel libffi-devel
+RUN pip3 install --upgrade pip
 
 COPY  . .
 
