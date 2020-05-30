@@ -48,7 +48,7 @@ print(model.summary())
 
 model.compile(loss='categorical_crossentropy', optimizer = Adam(lr=1e-4), metrics=["accuracy"])
 
-hist = model.fit(X_train, y_train, epochs=3)
+hist = model.fit(X_train, y_train, epochs=1)
 
 # save the model
 model.save("mnist_LeNet.h5")
