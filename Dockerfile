@@ -1,6 +1,6 @@
 FROM centos
 
-COPY Dockerfile /
+COPY . .
 
 RUN yum install python36 -y
 
