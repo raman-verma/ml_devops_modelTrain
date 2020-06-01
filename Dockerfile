@@ -1,5 +1,7 @@
 FROM centos
 
+COPY Dockerfile .
+
 RUN yum install python36 -y
 
 RUN yum -y install epel-release
