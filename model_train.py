@@ -7,12 +7,14 @@ from keras.optimizers import Adam
 from keras.datasets import mnist
 dataset = mnist.load_data('mymnist.db')
 
+#add the number of layer in the model
+layer=1
+epoch=1
+
 # data set contani both the things
 # Traing data
 # Test data
-train, test = dataset
-X_train, y_train = train
-X_test, y_test = test
+(X_train, y_train), (X_test, y_test) = dataset
 
 # Reshaping the the data for making it fit for the model traning.
 X_train = X_train.reshape(-1, 28, 28, 1)
@@ -31,9 +33,10 @@ y_test = to_categorical(y_test)
 # Start building the model
 model = Sequential()
 
-model.add(Conv2D(filters = 32, kernel_size = (3, 3), activation='relu',
-                 input_shape = (28, 28, 1)))
-model.add(MaxPool2D(strides=(2,2)))
+for i in layer:
+    model.add(Conv2D(filters = 32, kernel_size = (3, 3), activation='relu',
+                    input_shape = (28, 28, 1)))
+    model.add(MaxPool2D(strides=(2,2)))
 
 # model.add(Conv2D(filters = 32, kernel_size = (3, 3), activation='relu'))
 # model.add(Conv2D(filters = 32, kernel_size = (3, 3), activation='relu'))
@@ -48,13 +51,13 @@ print(model.summary())
 
 model.compile(loss='categorical_crossentropy', optimizer = Adam(lr=1e-4), metrics=["accuracy"])
 
-hist = model.fit(X_train, y_train, epochs=1)
+hist = model.fit(X_train, y_train, epochs=epoch)
 
 # save the model
-model.save("mnist_LeNet.h5")
+model.save("mnist.h5")
 
 # Evaluate the performance of our trained model
-final_loss, final_acc = model.evaluate(X_test, y_test, verbose=1)
+final_loss, final_acc = model.evaluate(X_test, y_test, verbose=0)
 print("Final loss: {0:.4f}, final accuracy: {1:.4f}".format(final_loss, final_acc))
 
 f=open("accuracy","w")
