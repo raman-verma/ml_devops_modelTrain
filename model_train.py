@@ -33,7 +33,7 @@ y_test = to_categorical(y_test)
 # Start building the model
 model = Sequential()
 
-for i in layer:
+for i in range(layer):
     model.add(Conv2D(filters = 32, kernel_size = (3, 3), activation='relu',
                     input_shape = (28, 28, 1)))
     model.add(MaxPool2D(strides=(2,2)))
