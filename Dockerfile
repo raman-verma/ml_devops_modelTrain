@@ -1,6 +1,6 @@
 FROM centos
 
-COPY . .
+COPY Dockerfile/ /model_dir/
 
 RUN yum install python36 -y
 
