@@ -1,6 +1,7 @@
 FROM centos
 
 COPY Dockerfile/ /model_dir/
+COPY requirement_cnn.txt/ /model_dir/
 
 RUN yum install python36 -y
 
