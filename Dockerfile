@@ -9,7 +9,7 @@ RUN yum -y install epel-release
 
 RUN pip3 install --upgrade pip
 
-RUN pip3 install --upgrade --no-cache-dir -r requirement_cnn.txt
+RUN pip3 install --upgrade --no-cache-dir -r /model_dir/requirement_cnn.txt
 
 CMD [ "mkdir", "/model_dir" ]
 
