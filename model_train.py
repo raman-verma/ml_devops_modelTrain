@@ -11,6 +11,7 @@ dataset = mnist.load_data('mymnist.db')
 layer=1
 epoch=1
 
+
 # data set contani both the things
 # Traing data
 # Test data
